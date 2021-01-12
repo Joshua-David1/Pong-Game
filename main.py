@@ -1,4 +1,4 @@
-from turtle import Screen
+from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
 from scoreboard import ScoreBoard, CenterLine
@@ -103,5 +103,29 @@ def main():
     screen.exitonclick()
 
 
-if __name__ == '__main__':
-    main()
+def main_menu():
+    screen = Screen()
+    screen.bgcolor('black')
+    screen.tracer(0)
+    text = Turtle()
+    text.penup()
+    text.hideturtle()
+    text.color('white')
+    text.write('Press ENTER to Continue', False, align='center', font=("Arial", 20, "normal"))
+    text.goto(0, 200)
+    text.color('lime')
+    text.write("!!The first to score 7 points win!!", False, align='center', font=("Arial", 25, "normal"))
+    text.color('cyan')
+    text.goto(0, -300)
+    text.write("Player1 controls 'w' & 's'\t\t\t\t\t\t\tPlayer2 controls 'Up' & 'Down'",False, align='center', font=("Arial", 10, "normal"))
+
+    def gotomain():
+        text.clear()
+        screen.clear()
+        main()
+    screen.update()
+    screen.onkey(gotomain, "Return")
+    screen.listen()
+    screen.exitonclick()
+
+main_menu()

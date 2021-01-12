@@ -14,7 +14,7 @@ class Ball(Turtle):
         self.color('white')
         self.hit = False
         self.point_wait = 1
-        self.ispoint_wait = False
+        self.ispoint_wait = True
 
     def move(self):
         x_cor = self.xcor()+self.bounce_x
